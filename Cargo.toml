@@ -1,0 +1,14 @@
+[package]
+name = "basicpersonality"
+version = "0.0.1"
+authors = ["Daz Wilkin <dazwilkin@google.com>"]
+
+[[bin]]
+name = "client"
+path = "./src/client.rs"
+
+[dependencies]
+futures = "^0.1.15"
+protobuf = { version = "1.2", optional = true }
+log = "0.3"
+grpcio = { version = "0.4.4", features = ["openssl"] }

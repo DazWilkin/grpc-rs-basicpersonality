@@ -1,0 +1,24 @@
+// Simplified to facilitate building Rust
+// protoc --proto_path=./protos --rust_out=./src --grpc_out=./src --plugin=protoc-gen-grpc=$(which grpc_rust_plugin) ./protos/*.proto
+syntax = "proto3";
+
+package basicpersonality;
+
+service BasicPersonality {
+  rpc PutThing(ThingRequest) returns (ThingResponse) {};
+  rpc GetThing(ThingRequest) returns (ThingResponse) {};
+  rpc WaitThing(ThingRequest) returns (ThingResponse) {};
+}
+message ThingRequest {
+  Thing thing = 1;
+  Extra extra = 2;
+}
+message ThingResponse {
+  string status = 1;
+}
+message Thing {
+  string name = 1;
+}
+message Extra {
+  string name = 1;
+}
