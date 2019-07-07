@@ -1,11 +1,12 @@
 extern crate grpcio;
-// extern crate basicpersonality_proto;
+extern crate futures;
+extern crate protobuf;
 
 use std::sync::Arc;
-
 use grpcio::{ChannelBuilder, EnvBuilder};
-use basicpersonality_proto::basicpersonality::ThingRequest;
-use basicpersonality_proto::basicpersonality_grpc::BasicPersonalityClient;
+
+mod basicpersonality;
+mod basicpersonality_grpc;
 
 fn main() {
     let env = Arc::new(EnvBuilder::new().build());
